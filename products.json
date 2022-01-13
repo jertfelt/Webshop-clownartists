@@ -1,0 +1,52 @@
+{
+  "items": [
+    {
+      "sys": { "id": "1" },
+      "fields": {
+        "title": "THIS IS NOT FINE tote bag",
+        "price": 600,
+        "image": { "fields": { "file": { "url": "img/product-1.jpeg" } } }
+      }
+    },
+    {
+      "sys": { "id": "2" },
+      "fields": {
+        "title": "Timeline mug",
+        "price": 200,
+        "image": { "fields": { "file": { "url": "img/timeline-mug.png" } } }
+      }
+    },
+    {
+      "sys": { "id": "3" },
+      "fields": {
+        "title": "Photoshop",
+        "price": 400,
+        "image": { "fields": { "file": { "url": "img/photoshop.jpeg" } } }
+      }
+    },
+    {
+      "sys": { "id": "4" },
+      "fields": {
+        "title": "Covid Special",
+        "price": 219,
+        "image": { "fields": { "file": { "url": "img/covid-chicken-gordon-ramsay.png" } } }
+      }
+    },
+    {
+      "sys": { "id": "5" },
+      "fields": {
+        "title": "I am error",
+        "price": 500,
+        "image": { "fields": { "file": { "url": "img/i-am-error-tshirt.png" } } }
+      }
+    },
+    {
+      "sys": { "id": "6" },
+      "fields": {
+        "title": "UX UI",
+        "price": 300,
+        "image": { "fields": { "file": { "url": "img/print-uxui.png" } } }
+      }
+    }
+  ]
+}

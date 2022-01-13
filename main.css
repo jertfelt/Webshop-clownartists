@@ -1,0 +1,26 @@
+:root {
+  --clownRed: #ED1C24;
+  --clownBlue: #1C75BC;
+  --mainBlack: #201E1E;
+  --mainGrey: #ececec;
+  --mainSpacing: 0.1rem;
+  --mainTransition: all 0.3s linear;
+}
+
+body {
+  background: var(--mainBlack);
+  color: var(--mainWhite);
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+/*navigation*/
+.nav{
+  position: sticky;
+  top: 0;
+  height: 60px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  background: var(--mainBlack);
+  z-index: 1;
+}
