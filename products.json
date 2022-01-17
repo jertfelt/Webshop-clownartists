@@ -1,11 +1,11 @@
-{
-  "items": [
+{ 
+  "items": [ 
     {
       "sys": { "id": "1" },
       "fields": {
-        "title": "THIS IS NOT FINE tote bag",
+        "title": "THIS IS NOT FINE bag",
         "price": 600,
-        "image": { "fields": { "file": { "url": "img/product-1.jpeg" } } }
+        "image": { "fields": { "file": { "url": "img/this-is-fine-totembag.png" } } }
       }
     },
     {
@@ -19,9 +19,9 @@
     {
       "sys": { "id": "3" },
       "fields": {
-        "title": "Photoshop",
+        "title": "Photoshop bag",
         "price": 400,
-        "image": { "fields": { "file": { "url": "img/photoshop.jpeg" } } }
+        "image": { "fields": { "file": { "url": "img/photoshop.png" } } }
       }
     },
     {
@@ -45,7 +45,7 @@
       "fields": {
         "title": "UX UI",
         "price": 300,
-        "image": { "fields": { "file": { "url": "img/print-uxui.png" } } }
+        "image": { "fields": { "file": { "url": "img/ux-ui-print.png" } } }
       }
     }
   ]
