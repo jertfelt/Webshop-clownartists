@@ -52,6 +52,11 @@ body {
   justify-content: space-between;
   padding: 0 1.5rem;
 }
+.navbar img:hover{
+transform: rotate(30deg);
+transition: var(--mainTransition);
+}
+
 .nav-icon--2{
  margin-top:20px;
 }
@@ -319,3 +324,65 @@ body {
   margin-bottom: 1rem;
 }
 
+.about-us{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content: center;
+  padding:3rem;
+  @media screen and (max-width: 768px){
+    padding:1rem;
+  }
+}
+
+.about-us p{
+  font-family: var(--mainFont);
+  line-height:1.8rem;
+  width:50%;
+  margin-top:2rem;
+}
+.about-us h2{
+  font-family: var(--headingFont);
+  margin:3rem;
+}
+.about-us img{
+  height:30px;
+  margin-bottom:-6px;
+}
+
+footer{
+  background-color: var(--mainWhite);
+  padding:2rem;
+  align-items: right;
+  margin-top:-2rem;
+
+
+}
+footer div{
+  align-items: center;
+  margin:0;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+footer p{
+  color:var(--mainBlack);
+  text-align: center;
+}
+
+.svgs{
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+footer svg{
+  height:60px;
+}
+
+.curved-div {
+  background: transparent;
+  margin-top:5rem;
+}
