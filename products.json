@@ -3,7 +3,7 @@
     {
       "sys": { "id": "1" },
       "fields": {
-        "title": "THIS IS NOT FINE bag",
+        "title": "THIS IS NOT FINE ",
         "price": 600,
         "image": { "fields": { "file": { "url": "img/this-is-fine-totembag.png" } } }
       }
@@ -11,7 +11,7 @@
     {
       "sys": { "id": "2" },
       "fields": {
-        "title": "Timeline mug",
+        "title": "Timeline ",
         "price": 200,
         "image": { "fields": { "file": { "url": "img/timeline-mug.png" } } }
       }
@@ -19,7 +19,7 @@
     {
       "sys": { "id": "3" },
       "fields": {
-        "title": "Photoshop bag",
+        "title": "Photoshop ",
         "price": 400,
         "image": { "fields": { "file": { "url": "img/photoshop.png" } } }
       }

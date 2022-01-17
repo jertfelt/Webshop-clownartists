@@ -18,7 +18,7 @@ let productsMenu = document.querySelector(".products-center");
 //cart
 let cart = [];
 
-//setting classes: 
+
 
 //getting products from json 
 class Products{
@@ -43,9 +43,10 @@ class Products{
 }
 
 // display products on website (insted of coding HTML)
-class UI{
+class Creating{
 displayProducts(products){
 let result =''; 
+
 products.forEach(product => {
   result +=`
   <article class="product">
@@ -58,10 +59,12 @@ products.forEach(product => {
         <p>Lägg i varukorg</p>
       </button>
     </div>
-    
+
     <div class="products-items">
+    <div class="products-items-row2">
       <h3> ${product.title} </h3> 
       <h4> ${product.price} SEK</h4>
+      </div>
       <button class="grid-btn" data-id= ${product.id}>
         <p>KÖP</p>
       </button>
@@ -71,15 +74,213 @@ products.forEach(product => {
 });
 productsMenu.innerHTML = result;
 }
+
+//buttons and adding to cart functionality
+getButtons(){
+  //creating nodes to arrays so I can loop through them and use array-methods:
+  let buttonsCart = [...document.querySelectorAll(".bag-btn")];
+  let buttonsMenu = [...document.querySelectorAll(".grid-btn")];
+ 
+  //getting the ID:s and checking if they are in the cart
+  buttonsCart.forEach(button => {
+
+    let id = button.dataset.id;
+    let inCart = cart.find(item => item.id === id);
+   
+    //adding to cart, disabling double-adding
+    if(inCart){
+      button.innerText = "I varukorgen";
+      button.disabled = true;
+      button.style.backgroundColor ="#707070";
+      button.style.color ="#ececec"
+    }
+
+    //button on image:
+    button.addEventListener("click", (event) => {
+        event.target.innerText ="I varukorgen";
+        event.target.disabled = true;
+
+        //product from products
+        //creating object:
+        let cartItem = {...Storage.getProduct(id), amount:1};
+        
+        //add product to the cart (in array)
+        cart = [...cart,cartItem];
+        
+        //save cart-array in local storage
+        Storage.saveCart(cart);
+
+        //set cart values 
+        this.setCartValue(cart);
+
+        //display cart item
+        this.addCartItem(cartItem);
+
+        //show cart 
+        this.showCart();
+
+      });
+
+    })
+
+    //button in grid:
+    buttonsMenu.forEach(button => {
+
+      let id = button.dataset.id;
+      let inCart = cart.find(item => item.id === id);
+     
+      //adding to cart, disabling double-adding
+      if(inCart){
+        button.innerText = "I varukorgen";
+        button.disabled = true;
+        button.style.backgroundColor ="#707070";
+      }
+      button.addEventListener("click", (event) => {
+          event.target.innerText ="I varukorgen";
+          event.target.disabled = true;
+          
+  
+          //product from products
+          //creating object:
+          let cartItem = {...Storage.getProduct(id), amount:1};
+          
+          //add product to the cart (in array)
+          cart = [...cart,cartItem];
+          
+          //save cart-array in local storage
+          Storage.saveCart(cart);
+  
+          //set cart values 
+          this.setCartValue(cart);
+  
+          //display cart item
+          this.addCartItem(cartItem);
+  
+          //show cart 
+          this.showCart();
+        });
+
+      });
+
+  };
+
+  setCartValue(cart){
+    let temporaryTotal = 0;
+    let itemsTotal = 0;
+    cart.map(item =>{
+      //amount of items multiplied by their prices
+      temporaryTotal += item.price * item.amount;
+      itemsTotal += item.amount;
+    });
+    //showing amount in cart in navigations wooo!:
+    cartItems.innerText = itemsTotal; 
+    ///fixing decimals
+    cartTotal.innerText = parseFloat(temporaryTotal.toFixed(2));
+  }
+  //for each cart item:
+  addCartItem(item){
+    let cartdiv =document.createElement("div");
+    cartdiv.classList.add("cart-item");
+    cartdiv.innerHTML = `<img src=${item.image}
+    alt="product" />
+    <div>
+      <h4>${item.title}</h4>
+      <h5>${item.price}SEK</h5>
+      <span class="remove-item" data-id=${item.id} >Remove</span>
+    </div>
+    <div>
+      <i class="fas fa-chevron-up" data-id=${item.id}></i>
+      <p class="item-amount">${item.amount}</p>
+      <i class="fas fa-chevron-down"data-id=${item.id} ></i>
+    </div>
+    `
+    cartContent.appendChild(cartdiv);
+  }
+
+  setupCart(){
+    cart = Storage.getCartStart();
+    this.setCartValue(cart);
+    this.populateCart(cart);
+    //activate buttons (close, open)
+
+    cartButt.addEventListener("click", this.showCart);
+    //hide cart
+    closeCartButt.addEventListener("click",this.hideCart);
+  };
+
+  showCart(){
+    cartOpacity.classList.add("transparentBcg");
+    cartMenu.classList.add("showCart");
+  };
+
+  hideCart(){
+    cartOpacity.classList.remove("transparentBcg");
+    cartMenu.classList.remove("showCart");
+  }
+
+    //method for cart array
+  populateCart(cart){
+      //adding cart items to the cart
+      cart.forEach(item => this.addCartItem(item));
+    }
+
+  cartLogic(){
+    //clear cart (accessing within class)
+    clearCartButt.addEventListener("click",() => {this.clearCart});
+    //cart functionality
+
+  }
+
+  clearCart(){
+    //get all the ID:s from the cart
+    let cartItemsAllClear = cart.map(item => item.id);
+    //loop over the array and remove
+    cartItemsAllClear.forEach(id => this.removeItem(id));
+  }
+
+  removeItem(id){
+    cart = cart.filter(item => item.id !== id);
+  }
+
+};
+
+
+//*----------------local storage
+//all products
+class Storage{
+  static saveProducts(products){
+    localStorage.setItem("products", JSON.stringify(products));
+  }
+  //take product from products
+  static getProduct(id){
+    let products = JSON.parse(localStorage.getItem('products'));
+    return products.find(product => product.id ===id);
+  }
+  //cart array in local storage
+  static saveCart(cart){
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }
+  static getCartStart(){
+    //saving the cart for future visits or, for first time visitors, an empty array:
+    return localStorage.getItem('cart')?JSON.parse(localStorage.getItem('cart')):[];
+  }
 }
-//local storage
-class Storage{}
 
-//function
+//------function eventlistener(loading page)
 document.addEventListener("DOMContentLoaded",() =>{
-let ui = new UI();
+let creating = new Creating();
 let products = new Products();
-//get all products
+//setting up
+creating.setupCart();
 
-products.getProducts().then(products => ui.displayProducts(products));
-})
+//get all products and fix local storage
+//*by using .then we add things ONLY after adding products
+products.getProducts().then(products => {
+  creating.displayProducts(products);
+  Storage.saveProducts(products);
+}).then(()=>{
+  creating.getButtons();
+  creating.cartLogic();
+});
+
+});
