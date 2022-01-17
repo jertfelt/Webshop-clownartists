@@ -17,7 +17,8 @@ let productsMenu = document.querySelector(".products-center");
 
 //cart
 let cart = [];
-
+let allCartButtons = [];
+let allMenuButtons = [];
 
 
 //getting products from json 
@@ -65,9 +66,9 @@ products.forEach(product => {
       <h3> ${product.title} </h3> 
       <h4> ${product.price} SEK</h4>
       </div>
-      <button class="grid-btn" data-id= ${product.id}>
+      <!--<button class="grid-btn" data-id= ${product.id}>
         <p>KÖP</p>
-      </button>
+      </button>-->
     </div>
   </article> 
   `;
@@ -79,7 +80,11 @@ productsMenu.innerHTML = result;
 getButtons(){
   //creating nodes to arrays so I can loop through them and use array-methods:
   let buttonsCart = [...document.querySelectorAll(".bag-btn")];
-  let buttonsMenu = [...document.querySelectorAll(".grid-btn")];
+  allCartButtons = buttonsCart;
+
+//*alternative buttons:
+   // let buttonsMenu = [...document.querySelectorAll(".grid-btn")];
+  // allMenuButtons = buttonsMenu;
  
   //getting the ID:s and checking if they are in the cart
   buttonsCart.forEach(button => {
@@ -120,48 +125,7 @@ getButtons(){
         this.showCart();
 
       });
-
     })
-
-    //button in grid:
-    buttonsMenu.forEach(button => {
-
-      let id = button.dataset.id;
-      let inCart = cart.find(item => item.id === id);
-     
-      //adding to cart, disabling double-adding
-      if(inCart){
-        button.innerText = "I varukorgen";
-        button.disabled = true;
-        button.style.backgroundColor ="#707070";
-      }
-      button.addEventListener("click", (event) => {
-          event.target.innerText ="I varukorgen";
-          event.target.disabled = true;
-          
-  
-          //product from products
-          //creating object:
-          let cartItem = {...Storage.getProduct(id), amount:1};
-          
-          //add product to the cart (in array)
-          cart = [...cart,cartItem];
-          
-          //save cart-array in local storage
-          Storage.saveCart(cart);
-  
-          //set cart values 
-          this.setCartValue(cart);
-  
-          //display cart item
-          this.addCartItem(cartItem);
-  
-          //show cart 
-          this.showCart();
-        });
-
-      });
-
   };
 
   setCartValue(cart){
@@ -226,21 +190,91 @@ getButtons(){
 
   cartLogic(){
     //clear cart (accessing within class)
-    clearCartButt.addEventListener("click",() => {this.clearCart});
+    clearCartButt.addEventListener("click", () => {
+      this.clearCart();
+    });
     //cart functionality
-
+      //setting an eventlistener on cartcontent ("event bubbling")
+    cartContent.addEventListener("click", event =>{})
   }
+
+  
 
   clearCart(){
     //get all the ID:s from the cart
     let cartItemsAllClear = cart.map(item => item.id);
+  
     //loop over the array and remove
     cartItemsAllClear.forEach(id => this.removeItem(id));
+    
+    while(cartContent.children.length>0){
+      cartContent.removeChild(cartContent.children[0]);
+    }
+    this.hideCart();
+    
   }
-
   removeItem(id){
     cart = cart.filter(item => item.id !== id);
+    this.setCartValue(cart);
+    Storage.saveCart(cart);
+    let button = this.getSingleCartButton(id);
+    button.disabled = false;
+    button.innerText = `Lägg i varukorg`;
+    button.style.backgroundColor ="#1c75bc";
+    button.style.color ="#201E1E";
+
   }
+  getSingleCartButton(id){
+    return allCartButtons.find(button => button.dataset.id === id);
+  };
+
+
+
+
+
+    // //button in grid:
+    // buttonsMenu.forEach(button => {
+
+    //   let id = button.dataset.id;
+    //   let inCart = cart.find(item => item.id === id);
+     
+    //   //adding to cart, disabling double-adding
+    //   if(inCart){
+    //     button.innerText = "I varukorgen";
+    //     button.disabled = true;
+    //     button.style.backgroundColor ="#707070";
+    //   }
+    //   button.addEventListener("click", (event) => {
+    //       event.target.innerText ="I varukorgen";
+    //       event.target.disabled = true;
+          
+  
+    //       //product from products
+    //       //creating object:
+    //       let cartItem = {...Storage.getProduct(id), amount:1};
+          
+    //       //add product to the cart (in array)
+    //       cart = [...cart,cartItem];
+          
+    //       //save cart-array in local storage
+    //       Storage.saveCart(cart);
+  
+    //       //set cart values 
+    //       this.setCartValue(cart);
+  
+    //       //display cart item
+    //       this.addCartItem(cartItem);
+  
+    //       //show cart 
+    //       this.showCart();
+    //     });
+
+    //   });
+
+
+  // getSingleGridButton(id){
+  //   return allMenuButtons.find(button => button.dataset.id === id);
+  // };
 
 };
 
