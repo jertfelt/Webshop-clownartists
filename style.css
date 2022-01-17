@@ -33,6 +33,16 @@ body {
   z-index: 1;
 }
 
+.mobile-container {
+  max-width: 480px;
+  margin: auto;
+  background-color: var(--clownBlue);
+  height: 500px;
+  color: var(--mainWhite);
+  border-radius: 10px;
+}
+
+
 .navbar {
   position: sticky;
   top: 0;
@@ -41,6 +51,44 @@ body {
   display: flex;
   align-items: center;
   background: var(--clownBlue);
+}
+
+.drop-down{
+  display:none;
+}
+
+.main-menu-mobile{
+  background-color: var(--clownBlue);
+  color: var(--mainWhite);
+  width: 100%;
+  display: block;
+  position: absolute;
+  z-index: 99;
+  right: 0;
+  top: 74px;
+  padding: 30px 20px;
+  font-family: var(--headingFont);
+    
+}
+.main-menu-mobile li {
+  display: block;
+  margin-bottom: 20px;
+}
+.main-menu-mobile a {
+ font-size: 38px;
+ font-weight:bold;
+  display: block;
+  text-transform: capitalize;
+  padding: 0px 0;
+  text-align: center;
+}
+
+.main-menu-mobile a:hover{
+  color: var(--mainWhite);
+  text-transform: uppercase;
+}
+.active{
+  color:var(--mainBlack);
 }
 
 .navbar-center {
@@ -69,7 +117,7 @@ transition: var(--mainTransition);
   position:relative;
   z-index:7;
   top:-30px;
-  left:-40px;
+  left:-50px;
   background: var(--mainBlack);
   padding: 0 5px;
   border-radius: 30%;
@@ -304,6 +352,10 @@ transition: var(--mainTransition);
 .item-amount {
   text-align: center;
 }
+
+.hide-item{
+  display:none;
+}
 .remove-item {
   color: var(--clownBlue);
   cursor: pointer;
@@ -355,12 +407,13 @@ footer{
   padding:2rem;
   align-items: right;
   margin-top:-2rem;
+  margin-bottom:-4rem;
 
 
 }
 footer div{
   align-items: center;
-  margin:0;
+
   display:flex;
   flex-direction: column;
   align-items: center;
