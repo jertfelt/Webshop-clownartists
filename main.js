@@ -1,6 +1,5 @@
 //variables
 
-//shopping cart menu
 let cartButt = document.querySelector('.cart-btn');
 let closeCartButt = document.querySelector('.close-cart');
 let clearCartButt = document.querySelector('.clear-cart');
@@ -145,7 +144,9 @@ getButtons(){
   addCartItem(item){
     let cartdiv =document.createElement("div");
     cartdiv.classList.add("cart-item");
-    cartdiv.innerHTML = `<img src=${item.image}
+    cartdiv.innerHTML = `
+    <div class="cart-item">
+        <img src=${item.image}
     alt="product" />
     <div>
       <h4>${item.title}</h4>
@@ -157,6 +158,7 @@ getButtons(){
       <p class="item-amount">${item.amount}</p>
       <i class="fas fa-chevron-down"data-id=${item.id} ></i>
     </div>
+    </div> 
     `
     cartContent.appendChild(cartdiv);
   }
@@ -193,11 +195,14 @@ getButtons(){
     clearCartButt.addEventListener("click", () => {
       this.clearCart();
     });
-    //cart functionality
-      //setting an eventlistener on cartcontent ("event bubbling")
-    cartContent.addEventListener("click", event =>{})
-  }
 
+    //cart functionality (remove, add, take away)
+  
+        
+    
+      
+      
+    }
   
 
   clearCart(){
@@ -217,6 +222,7 @@ getButtons(){
     cart = cart.filter(item => item.id !== id);
     this.setCartValue(cart);
     Storage.saveCart(cart);
+    
     let button = this.getSingleCartButton(id);
     button.disabled = false;
     button.innerText = `Lägg i varukorg`;
@@ -299,6 +305,12 @@ class Storage{
     return localStorage.getItem('cart')?JSON.parse(localStorage.getItem('cart')):[];
   }
 }
+
+// function keyPress (e) {
+//   if(e.key === "Escape") {
+//     cartOpacity.classList.remove("transparentBcg");
+//     cartMenu.classList.remove("showCart");
+//   }}
 
 //------function eventlistener(loading page)
 document.addEventListener("DOMContentLoaded",() =>{
