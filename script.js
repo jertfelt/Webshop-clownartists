@@ -66,4 +66,11 @@ function updateCanvas(canvas, image, topText, bottomText) {
   ctx.fillText(bottomText, canvasWidth / 2, canvasHeight - yOff);
 }
 
-
+let saveButton = document.getElementById("savememe");
+saveButton.addEventListener("click", () => {
+  let info = canvas.toDataURL("img/png");
+  let a = document.createElement("a");
+  a.href = info;
+  a.download = "My-own-meme.png";
+  a.click();
+});

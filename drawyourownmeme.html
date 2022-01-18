@@ -51,36 +51,64 @@ style="height: 30px;" alt="Menu" id="menutoggle">
   </header>
   
   
-  <main class="meme-page">
-    <h1>Meme generator!</h1>
+  <main>
+      <div class="meme-page">
     <div class="meme-generator">
+      <h1>Gör din egen meme!</h1>
       <label>Textruta #1: </label>
-      <input type="text" id="topText">
+      <input type="text" 
+      id="topText" 
+      placeholder="Din text här:">
       <label>Textruta #2:</label>
-      <input type="text" id="bottomText">
-      <label>Ladda upp en bild:</label>
-      <input type="file" id="imageFileInput">
-     
-      <label>Din meme:</label>
-
+      <input type="text" 
+      id="bottomText" 
+      placeholder="Din text här:">
+      <button 
+      class="button" 
+      onclick="document.getElementById('imageFileInput').click()">
+      Välj din bild här:</button>
+       <input type="file" id="imageFileInput"
+       style="visibility:hidden;">
       <canvas id="meme"></canvas>
       <button id="savememe" class="savememebutt">Spara</button>
     </div>
-    
-  </main>
+  </div>
 
-  <!-- <div class="hero">
-    <div class="banner">
-      <img src="img/logotype_clown-color.png" style="max-height:100px;">
-      <h1 class="banner-title">Nytt i butiken</h1>
-    
-      <img src="img/red squiggly.png" alt="line" style="max-height:30px;">
-      <a href="index.html"><button class="banner-btn">Till salu</button></a>
+<section class="products" id="products">
+  <div class="section-title">
+    <h2> Du kanske också är intresserad av:</h2>
+  </div>    
+    <div class="products-center">
     </div>
-  </div>  -->
+  </div>
+  </div>
+</section>
+
+
+
+  </main>
+  
+  <aside>  
+    <div class="cart-overlay">
+      <div class="cart">
+        <span class="close-cart">
+          <img src="img/Remove.png" alt="Close" style="height: 30px;"/>
+        </span>
+        <h2>Din kundvagn:</h2>
+        <div class="cart-content">
+       
+        </div>
+        <div class="cart-footer">
+          <h3>Totalt: <span class="cart-total">0</span> SEK</h3>
+          <button class="clear-cart banner-btn">Rensa kundvagn</button>
+        </div>
+      </div>
+    </div>
+    </aside>
+
+
 
   <div class="curved-div">
-  
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
       <path fill="#ececec" fill-opacity="1" d="M0,160L48,186.7C96,213,192,267,288,266.7C384,267,480,213,576,197.3C672,181,768,203,864,208C960,213,1056,203,1152,165.3C1248,128,1344,64,1392,32L1440,0L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
     </svg>
@@ -156,5 +184,6 @@ menuMobile.classList.add("drop-down");
 
 </script>
 <script src="script.js"></script>
+<script src="main.js"></script>
 </body>
 </html>
