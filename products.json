@@ -1,27 +1,30 @@
-{
-  "items": [
+{ 
+  "items": [ 
     {
       "sys": { "id": "1" },
       "fields": {
-        "title": "THIS IS NOT FINE tote bag",
+        "title": "THIS IS NOT FINE ",
         "price": 600,
-        "image": { "fields": { "file": { "url": "img/product-1.jpeg" } } }
+        "image": { "fields": { "file": { "url": "img/this-is-fine-totembag.png" } } },
+        "description": "Bästa comebacken av K.C Green. Vi älskar dig! Väskan är tryckt på ekologisk bomull och finns även som T-shirt. Vinsten går oavkortat till K.C Green. Stötta honom!"
       }
     },
     {
       "sys": { "id": "2" },
       "fields": {
-        "title": "Timeline mug",
+        "title": "Timeline ",
         "price": 200,
+        "description": "Vi älskar tidslinje-paradoxer, gör inte du? I ett pararellt universum är vi redan döda. Koppen är en LIMITED EDITION allihopa, och varar bara till mars. Slå till idag. REA dessutom!",
         "image": { "fields": { "file": { "url": "img/timeline-mug.png" } } }
       }
     },
     {
       "sys": { "id": "3" },
       "fields": {
-        "title": "Photoshop",
+        "title": "Photoshop ",
         "price": 400,
-        "image": { "fields": { "file": { "url": "img/photoshop.jpeg" } } }
+        "description": "En kommentar på hur s.k. professionella deisgners hela tiden ska tjata på en. Tryckt på ekologisk bomull och kan också  tryckas på naturvitt tyg.",
+        "image": { "fields": { "file": { "url": "img/photoshop.png" } } }
       }
     },
     {
@@ -29,6 +32,7 @@
       "fields": {
         "title": "Covid Special",
         "price": 219,
+        "description": "En specialare, överskottet går till Läkare Utan Gränser. Finns i olika storlekar, men vi rekommenderar inte 70x100 cm direkt, om du inte VERKLIGEN vill bråka med någon i familjen som lagar dålig mat.",
         "image": { "fields": { "file": { "url": "img/covid-chicken-gordon-ramsay.png" } } }
       }
     },
@@ -37,6 +41,7 @@
       "fields": {
         "title": "I am error",
         "price": 500,
+        "description": "En ärlig T-shirt om att göra fel hela tiden. Speciellt framtagen för programmerings-studenter och junior developers. Tryckt på ekologisk bomull, finns även på svart tyg.",
         "image": { "fields": { "file": { "url": "img/i-am-error-tshirt.png" } } }
       }
     },
@@ -45,7 +50,8 @@
       "fields": {
         "title": "UX UI",
         "price": 300,
-        "image": { "fields": { "file": { "url": "img/print-uxui.png" } } }
+        "description": "En hyllning till UX-design och designers i vår moderna tid. Need we say more? Finns i olika storlekar, tryckt på syrafritt papper. Ram ingår ej.",
+        "image": { "fields": { "file": { "url": "img/ux-ui-print.png" } } }
       }
     }
   ]
