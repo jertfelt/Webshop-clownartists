@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
 </head>
 
+
 <body class="draw-yourown">
 
   <header>
@@ -49,12 +50,26 @@ style="height: 30px;" alt="Menu" id="menutoggle">
     </nav>
   </header>
   
-  <main>
- 
+  
+  <main class="meme-page">
+    <h1>Meme generator!</h1>
+    <div class="meme-generator">
+      <label>Textruta #1: </label>
+      <input type="text" id="topText">
+      <label>Textruta #2:</label>
+      <input type="text" id="bottomText">
+      <label>Ladda upp en bild:</label>
+      <input type="file" id="imageFileInput">
+     
+      <label>Din meme:</label>
 
+      <canvas id="meme"></canvas>
+      <button id="savememe" class="savememebutt">Spara</button>
+    </div>
+    
   </main>
 
-  <div class="hero">
+  <!-- <div class="hero">
     <div class="banner">
       <img src="img/logotype_clown-color.png" style="max-height:100px;">
       <h1 class="banner-title">Nytt i butiken</h1>
@@ -62,7 +77,7 @@ style="height: 30px;" alt="Menu" id="menutoggle">
       <img src="img/red squiggly.png" alt="line" style="max-height:30px;">
       <a href="index.html"><button class="banner-btn">Till salu</button></a>
     </div>
-  </div> 
+  </div>  -->
 
   <div class="curved-div">
   
@@ -70,6 +85,7 @@ style="height: 30px;" alt="Menu" id="menutoggle">
       <path fill="#ececec" fill-opacity="1" d="M0,160L48,186.7C96,213,192,267,288,266.7C384,267,480,213,576,197.3C672,181,768,203,864,208C960,213,1056,203,1152,165.3C1248,128,1344,64,1392,32L1440,0L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
     </svg>
   </div>
+
   <footer>
     <div>
     <div class="svgs">
@@ -139,6 +155,6 @@ menuMobile.classList.add("drop-down");
 }
 
 </script>
-  <script src="drawyouwownmeme.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
