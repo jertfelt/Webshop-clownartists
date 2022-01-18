@@ -81,6 +81,7 @@ body {
   text-transform: capitalize;
   padding: 0px 0;
   text-align: center;
+  color: var(--mainWhite);
 }
 
 .main-menu-mobile a:hover{
