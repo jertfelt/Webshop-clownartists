@@ -1,5 +1,7 @@
 # Webshop-clownartists
 
+LINK TO PAGE HERE: https://jertfelt.github.io/Webshop-clownartists/
+
 A webshop made with vanilla javascript for the made-up company Clown Artists.
 In this project, I wanted to work with local storage (using javascript) and practise shop cart possibilites.
 A future version will have a product page (using node.js)
