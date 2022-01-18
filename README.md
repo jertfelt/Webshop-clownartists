@@ -7,6 +7,8 @@ Also added a simple javascript/canvas feature where the visitor can upload a pic
 
 The webshop design was made during a course in light UX at Nackademin, see the pitch here: https://indd.adobe.com/view/58a4cc43-661c-48b3-916e-c1dd7104b404
 
+In the website version, some adaptions were made (for example, using more UX-friendly buttons than in the design project)
+
 ![presentation2](https://user-images.githubusercontent.com/30622818/149964228-dda8f683-e03b-40e0-a0d5-2c70af04e095.png)
 ![presentation3](https://user-images.githubusercontent.com/30622818/149964151-6b7e0280-01b8-4e56-9e35-bbb2b2279189.jpg)
 ![presentation5](https://user-images.githubusercontent.com/30622818/149964167-490e669b-63ac-4a2a-a070-b9edca330415.jpg)
