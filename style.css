@@ -68,7 +68,7 @@ body {
   top: 74px;
   padding: 30px 20px;
   font-family: var(--headingFont);
-    
+
 }
 .main-menu-mobile li {
   display: block;
@@ -186,7 +186,7 @@ transition: var(--mainTransition);
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   grid-column-gap: 1.5rem;
   grid-row-gap: 2rem;
-  
+
 }
 .img-container {
   position: relative;
@@ -226,9 +226,12 @@ transition: var(--mainTransition);
 }
 
 .img-container:hover .product-img {
-  opacity: 0.5;
+  opacity: 0.8;
   border-color: var(--clownRed);
+  border-radius: 50%;
+
 }
+
 .products-items{
   display:flex;
   flex-direction: column;
@@ -289,7 +292,7 @@ transition: var(--mainTransition);
   transition: var(--mainTransition);
   background: rgb(28, 117, 188, 0.6);
   z-index: 2;
-  visibility: hidden; 
+  visibility: hidden;
 }
 .cart {
   position: fixed;
@@ -408,9 +411,8 @@ footer{
   align-items: right;
   margin-top:-2rem;
   margin-bottom:-4rem;
-
-
 }
+
 footer div{
   align-items: center;
 
@@ -439,3 +441,47 @@ footer svg{
   background: transparent;
   margin-top:5rem;
 }
+
+/* when working with backend:
+.product--full{
+  padding:8rem;
+}
+
+.product--full button{
+  cursor: pointer;
+  margin-bottom:3rem;
+  margin-top:2rem;
+}
+.product--full p{
+  width:80%;
+  text-align:center;
+}
+
+.product--full h1{
+  font-family: var(--headingFont);
+  text-align: center;
+  margin-bottom:3rem;
+  margin-top:-1em;
+  font-size:48px;
+}
+
+.products-items-row3{
+ display:flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: center;
+}
+
+.fullproduct-img {
+  border-radius: 29px;
+  border-style: solid;
+  border-color: var(--clownBlue);
+  display: block;
+  width: 100%;
+  min-height: 12rem;
+  transition: var(--mainTransition);
+}
+
+.img-container:hover .fullproduct-img {
+  border-color: var(--clownRed);
+} */

@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
 </head>
 
-<body>
+<body class="draw-yourown">
 
   <header>
     <nav class="navbar topnav">
@@ -47,79 +47,56 @@ style="height: 30px;" alt="Menu" id="menutoggle">
         </span>
       </div>
     </nav>
-
-  <div class="hero">
-    <div class="banner">
-      <img src="img/logotype_clown-color.png" style="max-height:100px;">
-      <h1 class="banner-title">Nytt i butiken</h1>
-      <img src="img/red squiggly.png" alt="line" style="max-height:30px;">
-      <a href="#products"><button class="banner-btn">Till salu</button></a>
-    </div>
-  </div>
   </header>
   
   <main>
-    <section class="about-us">
-      <img src="img/red squiggly.png">
-    <h2>Hola!</h2>
-   
-  
-      <h3>Vi är Clown Artists Inc! </h3>
-      <p> 
-        <img src="img/white star.png">
-      Vi är en grupp konstnärer som för skojs skull började sälja memes i form av affischer på en julmarknad för tre år sedan. <br><br>
-      <img src="img/white star.png">
-      Sedan dess har vi utökat till att trycka på t-shirts och tygväskor, och vi håller på att experimentera med broderi! Våra tryck är print on demand och vi använder oss av ekologisk bomull och återvänt papper. <br><br>
-      <img src="img/white star.png">
-      
-      Vi anser att memes är en konstform som trotsar kapitalismens corporate copyright-förhavanden. 
-      
-      De e definitivt punk!
-      <br><br>
-       
-     
-  
-      <img src="img/white star.png">
-      <i>Bra att veta:</i> 
-      Memesen är curerade av oss på Clown Artists Inc  och byts ut när vi känner för det. Vi äger inga av rättigheterna. I de fall där det finns enskilda kreatörer som ligger bakom memen så går en andel av vinsten till dem. 
-      För solidaritet e punk! </p>
-    </section>
-
-  <section class="products" id="products">
-    <div class="section-title">
-      <h2> Våra produkter:</h2>
-    </div>
-    <div class="products-center">
-    </div>
-  </section>
+ 
 
   </main>
 
-  <aside>  
-  <div class="cart-overlay">
-    <div class="cart">
-      <span class="close-cart">
-        <img src="img/Remove.png" alt="Close" style="height: 30px;"/>
-      </span>
-      <h2>Din kundvagn:</h2>
-      <div class="cart-content">
-     
-      </div>
-      <div class="cart-footer">
-        <h3>Totalt: <span class="cart-total">0</span> SEK</h3>
-        <button class="clear-cart banner-btn">Rensa kundvagn</button>
-      </div>
-    </div>
-  </div>
-  </aside>
+  <div class="hero">
+    <div class="product-page">
 
-  <!--remember to put in special-design footer-->
+     <!-- <article class="product--full">
+       <div class="product--row">
+         <h1>Din produkt:</h1>
+        <div class="img-container">
+         <img src="img/photoshop.png" alt="produkt" class="fullproduct-img">
+        </div>
+        <div class="products-items-row2">
+          <h3> ${product.title}   </h3> 
+          <h4> ${product.price} SEK</h4>
+         
+        </div>
+        <div class="products-items-row3">
+          <p> ${product.description}
+          </p>
+          <button class="grid-btn" data-id= ${product.id}>
+            <p>KÖP</p>
+            </button>
+        </div>
+      </div>
+     </article> -->
+
+    </div> 
+  </div> 
+  <section class="products" id="products-productpage">
+    <div class="section-title">
+      <h2> Se mer:</h2>
+    </div>
+
+    <div class="products-center">
+<!--insert products here-->
+    </div>
+  </section>
+
   <div class="curved-div">
   
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
       <path fill="#ececec" fill-opacity="1" d="M0,160L48,186.7C96,213,192,267,288,266.7C384,267,480,213,576,197.3C672,181,768,203,864,208C960,213,1056,203,1152,165.3C1248,128,1344,64,1392,32L1440,0L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
     </svg>
   </div>
+
   <footer>
     <div>
     <div class="svgs">
@@ -188,9 +165,7 @@ else
 menuMobile.classList.add("drop-down");
 }
 
-
-
 </script>
-  <script src="main.js"></script>i
+  <script src="drawyouwownmeme.js"></script>
 </body>
 </html>

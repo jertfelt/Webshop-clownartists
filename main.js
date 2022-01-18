@@ -1,8 +1,3 @@
-//------menu
-
-
-
-
 //-----------variables
 
 let cartButt = document.querySelector('.cart-btn');
@@ -38,7 +33,8 @@ class Products{
         let {title, price} = item.fields;
         let {id} = item.sys;
         let image = item.fields.image.fields.file.url; 
-        return {title, price, id, image};
+        let description = item.fields.description; 
+        return {title, price, id, image, description};
       })
       return products;
     } catch (error) {
@@ -56,13 +52,16 @@ products.forEach(product => {
   result +=`
   <article class="product">
     <div class="img-container">
+    
       <img src= ${product.image} 
       alt="produkt ${product.title}" 
       class="product-img">
+    <!--  <a href="productpage.html">
       <button class="bag-btn" 
         data-id= ${product.id}>
-        <p>Lägg i varukorg</p>
+       <p>Läs mer</p>
       </button>
+      </a> -->
     </div>
 
     <div class="products-items">
@@ -70,10 +69,11 @@ products.forEach(product => {
       <h3> ${product.title} </h3> 
       <h4> ${product.price} SEK</h4>
       </div>
-      <!--<button class="grid-btn" data-id= ${product.id}>
+      <button class="grid-btn" data-id= ${product.id}>
         <p>KÖP</p>
-      </button>-->
+      </button>
     </div>
+  
   </article> 
   `;
 });
@@ -82,7 +82,7 @@ productsMenu.innerHTML = result;
 
 getButtons(){
   //creating nodes to arrays so I can loop through them and use array-methods:
-  let buttonsCart = [...document.querySelectorAll(".bag-btn")];
+  let buttonsCart = [...document.querySelectorAll(".grid-btn")];
   buttons = buttonsCart;
 
   //alternative buttons:
@@ -251,7 +251,6 @@ getButtons(){
     });
     }
   
-
   clearCart(){
     //get all the ID:s from the cart
     let cartItemsAllClear = cart.map(item => item.id);
@@ -272,62 +271,15 @@ getButtons(){
     
     let button = this.getSingleCartButton(id);
     button.disabled = false;
-    button.innerText = `Lägg i varukorg`;
-    button.style.backgroundColor ="#1c75bc";
-    button.style.color ="#201E1E";
+    button.innerText = `KÖP`;
+    button.style.backgroundColor ="#ED1C24";
+    button.style.color ="#ececec";
 
   }
   getSingleCartButton(id){
     return buttons.find(button => button.dataset.id === id);
   };
 
-
-
-
-
-    // //button in grid:
-    // buttonsMenu.forEach(button => {
-
-    //   let id = button.dataset.id;
-    //   let inCart = cart.find(item => item.id === id);
-     
-    //   //adding to cart, disabling double-adding
-    //   if(inCart){
-    //     button.innerText = "I varukorgen";
-    //     button.disabled = true;
-    //     button.style.backgroundColor ="#707070";
-    //   }
-    //   button.addEventListener("click", (event) => {
-    //       event.target.innerText ="I varukorgen";
-    //       event.target.disabled = true;
-          
-  
-    //       //product from products
-    //       //creating object:
-    //       let cartItem = {...Storage.getProduct(id), amount:1};
-          
-    //       //add product to the cart (in array)
-    //       cart = [...cart,cartItem];
-          
-    //       //save cart-array in local storage
-    //       Storage.saveCart(cart);
-  
-    //       //set cart values 
-    //       this.setCartValue(cart);
-  
-    //       //display cart item
-    //       this.addCartItem(cartItem);
-  
-    //       //show cart 
-    //       this.showCart();
-    //     });
-
-    //   });
-
-
-  // getSingleGridButton(id){
-  //   return allMenuButtons.find(button => button.dataset.id === id);
-  // };
 
 };
 
@@ -353,11 +305,13 @@ class Storage{
   }
 }
 
-// function keyPress (e) {
-//   if(e.key === "Escape") {
-//     cartOpacity.classList.remove("transparentBcg");
-//     cartMenu.classList.remove("showCart");
-//   }}
+//closing cart with escape button
+document.addEventListener('keydown', function(event){
+	if(event.key === "Escape"){
+		cartOpacity.classList.remove("transparentBcg");
+    cartMenu.classList.remove("showCart");
+	}
+});
 
 //------function eventlistener(loading page)
 document.addEventListener("DOMContentLoaded",() =>{
